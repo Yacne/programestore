@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+
+        header {
+            position: fixed;
+            background-color: #bbb;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header nav {
+ 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: Auto;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            font-size: 25px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .toggle-menu {
+            color: #333;
+            font-size: 30px;
+            cursor: pointer;
+            margin-right: 20px; /* إضافة مساحة يمين للزر */
+        }
+
+        .user-account {
+            margin-right: 20px; /* زيادة المسافة يمين لأيقونة الحساب */
+            background-color: #333;
+            color: #fff;
+            border-radius: 50%; /* جعل الزر دائري بالكامل */
+            padding: 5px; /* ضبط الحواف */
+            width: 25px; /* حجم الزر */
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 15px; /* تصغير حجم الأيقونة */
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 50px;
+            right: -70%; /* إزاحة القائمة أكثر لإخفائها تمامًا */
+            width: 50%; /* عرض القائمة الجانبية نصف الشاشة */
+            height: calc(100% - 50px);
+           backdrop-filter: blur(10px);
+            padding: 10px;
+            padding-top: 20%;
+            transition: all 0.5s ease;
+            z-index: 999;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .side-menu.show {
+            right: 0;
+        }
+
+        .menu-header {
+            width: 100%; /* عرض كامل القائمة الجانبية */
+            height: 15%; /* 20% من الطول العمودي للقائمة */
+            padding: 0px;
+            background-color: #000;
+            margin-bottom: 20px; /* مساحة بين المربع الأسود والعناصر */
+        }
+
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-menu li {
+            margin-bottom: 20px; /* زيادة المسافة بين العناصر */
+            display: flex;
+            align-items: center;
+            color: #000;
+        }
+
+        .side-menu a {
+            color: #000;
+            text-decoration: none;
+            font-size: 20px;
+            margin-left: 15px; /* مساحة بين الأيقونة والنص */
+        }
+
+        .side-menu i {
+            font-size: 30px;
+        }
+
+        main {
+          
+            padding: 15px;
+            margin-top: 15%;
+        }
+
+        .categories {
+            display: flex;
+            flex-direction: column; /* ترتيب العناصر عمودياً */
+        }
+
+        .category-container {
+            display: flex;
+            align-items: center; /* محاذاة العناصر في نفس السطر */
+        }
+
+        .category {
+            width: 100%;
+            height: 300px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .category h2 {
+            margin: 0;
+            font-size: 10px;
+            font-weight: bold;
+            background-color: #fff; /* خلفية بيضاء لتجنب التداخل مع النصوص الأخرى */
+            padding:  1px;
+        }
+
+        .category i {
+            font-size: 30px;
+            color: #333;
+            margin-right: 20px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .category {
+                width: 100%;
+                height: 150px;
+            }
+        }
+        
+        
+   .search-bar {        
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 30px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding-bottom: 50px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.search-bar button {
+    border: none;
+    background:none;
+    color: #000;
+    cursor: pointer;
+}
+
+     
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* المسافة بين العناصر */
+        }
+        .category-container {
+            display: flex;
+            align-items: center;
+        }
+        .category-container i {
+            font-size: 2rem; /* حجم الأيقونة */
+            margin-right: 10px;
+        }
+        .category-container h2 {
+            margin: 0;
+        }
+        .category {
+            margin-top: 10px;
+        }
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* المسافة بين الصور */
+            justify-content: space-between;
+        }
+        .products {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 150px; /* عرض الصورة */
+        }
+        .products img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px; /* انحناء الزوايا */
+            margin-bottom: 10px;
+        }
+        .title {
+            font-size: 1rem;
+            color: black;
+            margin: 0;
+        }
+        .container2.hidden {
+            display: none;
+        }
+        
+        
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="programe store.png" alt="Program Store">
+                <span>Program Store</span>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <div class="user-account">
+                    <i class="fas fa-user"></i> <!-- أيقونة الحساب -->
+                </div>
+                <div class="toggle-menu">
+                    <i class="fas fa-bars"></i> <!-- أيقونة الثلاثة خطوط -->
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+<div class="side-menu">
+    <div class="search-bar">
+        <input type="text" placeholder="search..">
+        <button><i class="fas fa-search"></i></button>
+    </div>
+    <ul>
+        <li><i class="fas fa-mobile-alt"></i><a href="#">Android Apps</a></li>
+        <li><i class="fas fa-desktop"></i><a href="#">Desktop Programs</a></li>
+        <li><i class="fas fa-shield-alt"></i><a href="#">Cyber Security Programs</a></li>
+        <li><i class="fas fa-code"></i><a href="#">Programming Files</a></li>
+        <li><i class="fas fa-gamepad"></i><a href="#">Games</a></li>
+        <li><i class="fas fa-ellipsis-h"></i><a href="#">Others</a></li>
+    </ul>
+</div>
+
+
+
+
+    <main>
+    <div class="categories">
+
+        <div class="categories">
+            <!-- Android Apps -->
+            <div class="category-container">
+                <i class="fas fa-mobile-alt"></i>
+                <h2>Android Apps</h2>
+            </div>
+            <div class="category">
+                <div class="category-header" onclick="toggleCategory('android-apps')">
+                </div>
+                <div id="android-apps" class="container2 hidden">
+                    <div class="products-container">
+                        <div class="products" onclick="toggleTechnoApp()">
+                            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302200793.jpg" alt="Techno app">
+                            <div class="title">Techno app</div>
+                        </div>
+                        <div class="products" onclick="toggleBulma()">
+                            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb%20(1).png" alt="Bulma IDE web">
+                            <div class="title">Bulma IDE web</div>
+                        </div>
+                        <div class="products" onclick="toggleNamek()">
+                            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Namek%20Encryptor.jpg" alt="Namek Encryptor">
+                            <div class="title">Namek Encryptor</div>
+                        </div>
+                        <div class="products" onclick="toggleWhis()">
+                            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Whis.png" alt="Whis assistance AI">
+                            <div class="title">Whis assistance AI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Software -->
+            <div class="category-container">
+                <i class="fas fa-desktop"></i>
+                <h2>Desktop Programs</h2>
+            </div>
+            <div class="category">
+                <div id="desktop-software" class="container2 hidden">
+                </div>
+                                <p style="text-align: center;">Unavailable at the moment</p>
+            </div>
+
+            <!-- Cyber Security Programs -->
+            <div class="category-container">
+                <i class="fas fa-shield-alt"></i>
+                <h2>Cyber Security Programs</h2>
+            </div>
+            <div class="category">
+                <div class="category-header" onclick="toggleCategory('cyber-security-tools')">
+                </div>
+                <div id="cyber-security-tools" class="container2 hidden">
+                    <div class="products-container">
+                        <div class="products" onclick="toggleZamasou()">
+                            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302211684.jpg" alt="Zamasou hacking devices">
+                            <div class="title">Zamasou hacking devices</div>
+                        </div>
+                        <div class="products" onclick="toggleMoro()">
+                            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302220693.jpg" alt="Moro Fb hacking">
+                    <div class="title">Moro Fb hacking</div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+            </div>
+            <div class="category-container">
+                <i class="fas fa-code"></i>
+                <h2>Programming Files</h2>
+            </div>
+            
+            <div class="category">
+                <p style="text-align: center;">Unavailable at the moment</p>
+            </div>
+            <div class="category-container">
+                <i class="fas fa-gamepad"></i>
+                <h2>Games</h2>
+            </div>
+            <div class="category">
+                <p style="text-align: center;">Unavailable at the moment</p>
+            </div>
+            <div class="category-container">
+                <i class="fas fa-ellipsis-h"></i>
+                <h2>Others</h2>
+            </div>
+            <div class="category">
+                <p style="text-align: center;">Unavailable at the moment</p>
+            </div>
+        </div>
+    </main>
+
+
+
+
+    <footer class="no-translate">
+        <p align="center">&copy; 2024 B.Y PRO, All rights reserved.</p>
+    </footer>
+ 
+
+
+
+    <script>
+        const toggleMenu = document.querySelector('.toggle-menu');
+        const sideMenu = document.querySelector('.side-menu');
+
+        toggleMenu.addEventListener('click', () => {
+            sideMenu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
