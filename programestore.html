@@ -545,6 +545,47 @@ main {
     });
 
 
+
+
+
+
+
+
+
+
+// إضافة مستمع لحدث الضغط على زر الرجوع
+window.addEventListener('popstate', function() {
+    const iframe = document.getElementById('content-iframe');
+    if (iframe.style.display === 'block') {
+        iframe.style.display = 'none'; // إخفاء iframe
+        iframe.src = ''; // إفراغ محتوى iframe
+        window.location.href = 'https://yacne.github.io/programestore/programestore.html'; // الانتقال إلى الرابط المحدد
+    }
+});
+
+// إضافة مستمع لحدث الضغط على روابط التطبيق
+document.querySelectorAll('.app-box').forEach(item => {
+    item.addEventListener('click', function() {
+        const url = this.getAttribute('data-url');
+        document.getElementById('content-iframe').src = url;
+        document.getElementById('content-iframe').style.display = 'block';
+        
+        // تاريخ الصفحة لزر الرجوع
+        history.pushState({}, '', url);
+    });
+});
+
+// إغلاق iframe عند النقر خارج منه
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.app-box') === null && document.getElementById('content-iframe').style.display === 'block') {
+        document.getElementById('content-iframe').style.display = 'none';
+        document.getElementById('content-iframe').src = '';
+        history.replaceState({}, '', window.location.pathname); // إعادة الحالة الحالية
+    }
+});
+
+
+
     </script>
 </body>
 </html>   
