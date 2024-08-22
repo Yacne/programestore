@@ -7,181 +7,138 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
-            background-color: #fff;
-            margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
-        }
-
-
-        header {
-            position: fixed;
-            background-color: #bbb;
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        header nav {
- 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            width: Auto;
-            height: 30px;
-            margin-right: 10px;
-        }
-
-        .logo span {
-            font-size: 25px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .toggle-menu {
-            color: #333;
-            font-size: 30px;
-            cursor: pointer;
-            margin-right: 20px; /* إضافة مساحة يمين للزر */
-        }
-
-        .user-account {
-            margin-right: 20px; /* زيادة المسافة يمين لأيقونة الحساب */
-            background-color: #333;
-            color: #fff;
-            border-radius: 50%; /* جعل الزر دائري بالكامل */
-            padding: 5px; /* ضبط الحواف */
-            width: 25px; /* حجم الزر */
-            height: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 15px; /* تصغير حجم الأيقونة */
-        }
-
-        .side-menu {
-            position: fixed;
-            top: 50px;
-            right: -70%; /* إزاحة القائمة أكثر لإخفائها تمامًا */
-            width: 50%; /* عرض القائمة الجانبية نصف الشاشة */
-            height: calc(100% - 50px);
-           backdrop-filter: blur(10px);
-            padding: 10px;
-            padding-top: 20%;
-            transition: all 0.5s ease;
-            z-index: 999;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-        }
-
-        .side-menu.show {
-            right: 0;
-        }
-
-        .menu-header {
-            width: 100%; /* عرض كامل القائمة الجانبية */
-            height: 15%; /* 20% من الطول العمودي للقائمة */
-            padding: 0px;
-            background-color: #000;
-            margin-bottom: 20px; /* مساحة بين المربع الأسود والعناصر */
-        }
-
-        .side-menu ul {
-            list-style: none;
+            margin: 0;
             padding: 0;
-            margin: 0;
-        }
-
-        .side-menu li {
-            margin-bottom: 20px; /* زيادة المسافة بين العناصر */
-            display: flex;
-            align-items: center;
+            background-color: #ffffff;
             color: #000;
+            height: 100%;
         }
+header {
+    position: fixed;
+    background-color: #bbb;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
-        .side-menu a {
-            color: #000;
-            text-decoration: none;
-            font-size: 20px;
-            margin-left: 15px; /* مساحة بين الأيقونة والنص */
-        }
-
-        .side-menu i {
-            font-size: 30px;
-        }
-
-        main {
-          
-            padding: 15px;
-            margin-top: 15%;
-        }
-
-        .categories {
-            display: flex;
-            flex-direction: column; /* ترتيب العناصر عمودياً */
-        }
-
-        .category-container {
-            display: flex;
-            align-items: center; /* محاذاة العناصر في نفس السطر */
-        }
-
-        .category {
-            width: 100%;
-            height: 300px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .category h2 {
-            margin: 0;
-            font-size: 10px;
-            font-weight: bold;
-            background-color: #fff; /* خلفية بيضاء لتجنب التداخل مع النصوص الأخرى */
-            padding:  1px;
-        }
-
-        .category i {
-            font-size: 30px;
-            color: #333;
-            margin-right: 20px;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .category {
-                width: 100%;
-                height: 150px;
-            }
-        }
-        
-        
-   .search-bar {        
+header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: auto;
+    height: 25px;
+    margin-right: 10px;
+    margin-left: 5px;
+    text-shadow: 2px 1px 2px #fff;
+}
+
+.logo span {
+    font-size: 25px;
+    font-weight: bold;
+    color: #333;
+}
+
+.toggle-menu {
+    color: #333;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.user-account {
+    margin-right: 10px; /* زيادة المسافة يمين لأيقونة الحساب */
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%; /* جعل الزر دائري بالكامل */
+    padding: 5px; /* ضبط الحواف */
+    width: 20px; /* حجم الزر */
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 15px; /* تصغير حجم الأيقونة */
+}
+
+.side-menu {
+    position: fixed;
+    top: 40px;
+    right: -80%;
+    width: 50%;
+    height: calc(100%);
+    backdrop-filter: blur(10px);
     padding: 5px;
+    padding-top: 20%;
+    transition: all 0.5s ease;
+    z-index: 10000; /* فوق الـ iframe */
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.side-menu.show {
+    right: 0;
+}
+
+.menu-header {
+    width: 100%; /* عرض كامل القائمة الجانبية */
+    height: 15%; /* 20% من الطول العمودي للقائمة */
+    padding: 0px;
+    background-color: #000;
+    margin-bottom: 20px; /* مساحة بين المربع الأسود والعناصر */
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu li {
+    margin-bottom: 20px; /* زيادة المسافة بين العناصر */
+    display: flex;
+    align-items: center;
+    color: #000;
+}
+
+.side-menu a {
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 15px; /* مساحة بين الأيقونة والنص */
+}
+
+.side-menu i {
+    font-size: 30px;
+}
+
+main {
+    padding: 15px;
+    margin-top: 70px; /* تأكد من أن هذا يكفي لإظهار المحتوى بالكامل فوق الفوتر */
+}
+
+.search-bar {        
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
     border-bottom: 1px solid #ccc;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .search-bar input {
     width: 100%;
-    padding-bottom: 50px;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #000;
     border-radius: 5px;
     font-size: 15px;
@@ -189,65 +146,200 @@
 
 .search-bar button {
     border: none;
-    background:none;
+    font-size: 1rem;
+    background: none;
     color: #000;
     cursor: pointer;
 }
 
-     
-        
-        .categories {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px; /* المسافة بين العناصر */
-        }
-        .category-container {
-            display: flex;
-            align-items: center;
-        }
-        .category-container i {
-            font-size: 2rem; /* حجم الأيقونة */
-            margin-right: 10px;
-        }
-        .category-container h2 {
-            margin: 0;
-        }
-        .category {
-            margin-top: 10px;
-        }
-        .products-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px; /* المسافة بين الصور */
-            justify-content: space-between;
-        }
-        .products {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 150px; /* عرض الصورة */
-        }
-        .products img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px; /* انحناء الزوايا */
-            margin-bottom: 10px;
-        }
-        .title {
-            font-size: 1rem;
-            color: black;
-            margin: 0;
-        }
-        .container2.hidden {
-            display: none;
-        }
-        
-        
-        
-        
-        
-        
+.categories {
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عمودياً */
+    gap: 20px; /* المسافة بين الفئات */
+}
+
+.category-container {
+    display: flex;
+    align-items: center; /* محاذاة العناصر في نفس السطر */
+    gap: 10px; /* المسافة بين الأيقونة والعنوان */
+}
+
+.category-container i {
+    font-size: 2rem; /* حجم الأيقونة */
+}
+
+.category-container h2 {
+    margin: 0;
+}
+
+
+
+.category h2 {
+    font-size: 1.5rem; /* حجم خط عنوان الفئة */
+    font-weight: bold;
+    background-color: #fff; /* خلفية بيضاء لتجنب التداخل مع النصوص الأخرى */
+    padding: 10px;
+    margin: 0 0 10px 0; /* مسافة أسفل العنوان */
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* المسافة بين الصور */
+    justify-content: space-between;
+}
+
+.products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 150px; /* عرض الصورة */
+}
+
+.products img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* انحناء الزوايا */
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 1rem;
+    color: black;
+    margin: 0;
+}
+
+.container2.hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+.category {
+    display: flex;
+    flex-wrap: wrap; /* السماح بتدفق العناصر إلى السطر التالي */
+    gap: 20px; /* المسافة بين العناصر */
+}
+
+.app-box-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+/* نخلي الصور والعناوين في نفس الكتلة */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* نمحي أي مسافة زائدة */
+.image-container img {
+    margin-bottom: 0; /* نلغي أي هامش سفلي */
+    padding-bottom: 0;
+    display: block; /* نتأكد أن الصورة تتصرف كبلوك */
+}
+
+.image-container h3, .image-container h1 {
+    margin-top: 0.5rem; /* تعدل حسب المسافة اللي تحبها */
+    padding-top: 0;
+    text-align: center; /* نخلي النص في الوسط */
+}
+
+/* تحديث حجم الصور */
+.app-box img {
+    width: 100%; /* العرض يكون 100% من عرض الصندوق */
+    height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+    object-fit: cover; /* تغطية الصندوق بالصورة بالكامل */
+    display: block; /* نخلي الصور في كتلة */
+    border-radius: 10px;
+}
+
+/* صندوق .app-box لتناسب الحجم الجديد */
+.app-box {
+    flex: 0 0 30%; /* نحدد عرض الصندوق ب30% */
+    margin-right: 15px; /* المسافة بين العناصر */
+    border-radius: 10px;
+}
+
+.app-box .title {
+    margin-top: 10px; /* المسافة العلوية */
+    text-align: center;
+    font-size: 15px; /* حجم الخط */
+    color: #333;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  
+
+}
+
+
+
+/* الأجهزة المكتبية */
+@media (min-width: 1024px) {
+    /* Reset styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+.side-menu {
+    width: 30%; /* عرض القائمة الجانبية نصف الشاشة */
+    
+}
+
+
+
+
+}
+
+
+
+/* Styles for the full-screen iframe */
+.fullscreen-iframe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%; /* 100% - 15% */
+    border: none;
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Make sure it's on top */
+    background: white;
+    transition: opacity 0.5s ease;
+}
+
+.iframe-container {
+    position: fixed;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    background: white;
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Make sure it's on top */
+    transition: opacity 0.5s ease;
+}
+
+.iframe-container.active, .fullscreen-iframe.active {
+    display: block;
+}
+
+
+
     </style>
 </head>
 <body>
@@ -259,67 +351,62 @@
             </div>
             <div style="display: flex; align-items: center;">
                 <div class="user-account">
-                    <i class="fas fa-user"></i> <!-- أيقونة الحساب -->
+                    <i class="fas fa-user"></i>
                 </div>
+            
                 <div class="toggle-menu">
-                    <i class="fas fa-bars"></i> <!-- أيقونة الثلاثة خطوط -->
-                </div>
+                    <i class="fas fa-bars"></i>
+         
             </div>
         </nav>
     </header>
 
-
-<div class="side-menu">
-    <div class="search-bar">
-        <input type="text" placeholder="search..">
-        <button><i class="fas fa-search"></i></button>
+    <div class="side-menu">
+        <div class="search-bar">
+            <input type="text" placeholder="search..">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        
+        <ul>
+            <li><i class="fas fa-mobile-alt"></i><a href="#">Android Apps</a></li>
+            <li><i class="fas fa-desktop"></i><a href="#">Desktop Programs</a></li>
+            <li><i class="fas fa-shield-alt"></i><a href="#">Cyber Security Programs</a></li>
+            <li><i class="fas fa-code"></i><a href="#">Programming Files</a></li>
+            <li><i class="fas fa-gamepad"></i><a href="#">Games</a></li>
+            <li><i class="fas fa-ellipsis-h"></i><a href="#">Others</a></li>
+        </ul>
     </div>
-    <ul>
-        <li><i class="fas fa-mobile-alt"></i><a href="#">Android Apps</a></li>
-        <li><i class="fas fa-desktop"></i><a href="#">Desktop Programs</a></li>
-        <li><i class="fas fa-shield-alt"></i><a href="#">Cyber Security Programs</a></li>
-        <li><i class="fas fa-code"></i><a href="#">Programming Files</a></li>
-        <li><i class="fas fa-gamepad"></i><a href="#">Games</a></li>
-        <li><i class="fas fa-ellipsis-h"></i><a href="#">Others</a></li>
-    </ul>
-</div>
-
-
-
 
     <main>
-    <div class="categories">
-
         <div class="categories">
-            <!-- Android Apps -->
-            <div class="category-container">
-                <i class="fas fa-mobile-alt"></i>
-                <h2>Android Apps</h2>
-            </div>
-            <div class="category">
-                <div class="category-header" onclick="toggleCategory('android-apps')">
-                </div>
-                <div id="android-apps" class="container2 hidden">
-                    <div class="products-container">
-                        <div class="products" onclick="toggleTechnoApp()">
-                            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302200793.jpg" alt="Techno app">
-                            <div class="title">Techno app</div>
-                        </div>
-                        <div class="products" onclick="toggleBulma()">
-                            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb%20(1).png" alt="Bulma IDE web">
-                            <div class="title">Bulma IDE web</div>
-                        </div>
-                        <div class="products" onclick="toggleNamek()">
-                            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Namek%20Encryptor.jpg" alt="Namek Encryptor">
-                            <div class="title">Namek Encryptor</div>
-                        </div>
-                        <div class="products" onclick="toggleWhis()">
-                            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Whis.png" alt="Whis assistance AI">
-                            <div class="title">Whis assistance AI</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Android Apps -->
+<div class="category-container">
+    <i class="fas fa-mobile-alt"></i>
+    <h2>Android Apps</h2>
+</div>
+<div class="category android-apps">
+    <div class="app-box-container">
+      <!-- Android Apps -->
+<div class="app-box" data-url="https://yacne.github.io/B.Y-PRO---Official-Page/Techno%20app.html">
+    <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302200793.jpg" alt="Techno app">
+    <div class="title">Techno app</div>
+</div>
+<!-- Repeat for other items... -->
+<div class="app-box" data-url="https://yacne.github.io/B.Y-PRO---Official-Page/Bulma%20ide%20web.html">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Bulmaideweb%20(1).png" alt="Bulma IDE web">
+            <div class="title">Bulma IDE web</div>
+        </div>
+<div class="app-box" data-url="https://yacne.github.io/B.Y-PRO---Official-Page/Namek%20Encryptor.html">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Namek%20Encryptor.jpg" alt="Namek Encryptor">
+            <div class="title">Namek Encryptor</div>
+        </div>
+<div class="app-box" data-url="https://yacne.github.io/B.Y-PRO---Official-Page/Whis%20assistance%20ai.html">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/Whis.png" alt="Whis assistance AI">
+            <div class="title">Whis assistance AI</div>
+        </div>
+    </div>
+</div>
+
 
             <!-- Desktop Software -->
             <div class="category-container">
@@ -327,89 +414,137 @@
                 <h2>Desktop Programs</h2>
             </div>
             <div class="category">
-                <div id="desktop-software" class="container2 hidden">
-                </div>
-                                <p style="text-align: center;">Unavailable at the moment</p>
+                <p style="text-align: center; color: #bbb; ">Unavailable at the moment</p>
             </div>
 
-            <!-- Cyber Security Programs -->
-            <div class="category-container">
-                <i class="fas fa-shield-alt"></i>
-                <h2>Cyber Security Programs</h2>
-            </div>
-            <div class="category">
-                <div class="category-header" onclick="toggleCategory('cyber-security-tools')">
-                </div>
-                <div id="cyber-security-tools" class="container2 hidden">
-                    <div class="products-container">
-                        <div class="products" onclick="toggleZamasou()">
-                            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302211684.jpg" alt="Zamasou hacking devices">
-                            <div class="title">Zamasou hacking devices</div>
-                        </div>
-                        <div class="products" onclick="toggleMoro()">
-                            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302220693.jpg" alt="Moro Fb hacking">
-                    <div class="title">Moro Fb hacking</div>
-                </div>
-            </div>
+            
+        <div class="categories">
+      <!-- cyber security -->
+<div class="category-container">
+    <i class="fas fa-shield-alt"></i>
+    <h2>cyber security</h2>
+</div>
+<div class="category cyber-security">
+    <div class="app-box-container">
+<div class="app-box" data-url="https://yacne.github.io/B.Y-PRO---Official-Page/Zamasou.html">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302211684.jpg" alt="Zamasou">
+            <div class="title">Zamasou</div>
         </div>
-        
-        
-        
+<div class="app-box" data-url="https://yacne.github.io/B.Y-PRO---Official-Page/Moro.html">
+            <img style="height: 73%;" src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302220693.jpg" alt="Moro">
+            <div class="title">Moro fb hacking</div>
+      
+      </div>
+    </div>
+</div>
+
+
+  <!-- os -->
+            <div class="category-container">
+<i class="fas fa-power-off"></i>
+                <h2>Operating system</h2>
+                
             </div>
+            
+            <div class="category">
+
+    <div class="app-box-container">
+<div class="app-box" data-url="https://yacne.github.io/B.Y-PRO---Official-Page/Alpha%20os.html">
+            <img src="https://raw.githubusercontent.com/Yacne/B.Y-PRO---Official-Page/main/1719302237520.jpg" alt="Alpha os">
+            <div class="title">Alpha os</div>
+        </div>
+            </div>
+            </div>
+
+
+            <!-- Programming Files -->
             <div class="category-container">
                 <i class="fas fa-code"></i>
                 <h2>Programming Files</h2>
             </div>
-            
             <div class="category">
-                <p style="text-align: center;">Unavailable at the moment</p>
+                <p style="text-align: center; color: #bbb; ">Unavailable at the moment</p>
             </div>
+
+            <!-- Games -->
             <div class="category-container">
                 <i class="fas fa-gamepad"></i>
                 <h2>Games</h2>
             </div>
             <div class="category">
-                <p style="text-align: center;">Unavailable at the moment</p>
+                <p style="text-align: center; color: #bbb; ">Unavailable at the moment</p>
             </div>
-            <div class="category-container">
-                <i class="fas fa-ellipsis-h"></i>
-                <h2>Others</h2>
-            </div>
-            <div class="category">
-                <p style="text-align: center;">Unavailable at the moment</p>
-            </div>
+
+            <!-- Others -->
+
+
+<div class="category-container">
+    <i class="fas fa-ellipsis-h"></i>
+    <h2>Others</h2>
+</div>
+
+<div class="category">
+                  <p style="text-align: center; color: #bbb; ">Unavailable at the moment</p>
         </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Footer Section -->
+<footer style="text-align: center; bottom: 0px; margin-top: 20%;">
+<hr>
+    <p>© 2024 <span class="notranslate" translate="no">B.Y PRO Programe store</span>. All rights reserved.</p>
+</footer>
+
     </main>
 
 
-
-
-    <footer class="no-translate">
-        <p align="center">&copy; 2024 B.Y PRO, All rights reserved.</p>
-    </footer>
- 
-
+<!-- Iframe Section -->
+<iframe id="content-iframe" src="" style="display: none; position: fixed; top: 5%; left: 0; width: 100%; height: 100%; border: none; z-index: 9999;"></iframe>
 
 
     <script>
+        // Toggle the side menu
         const toggleMenu = document.querySelector('.toggle-menu');
         const sideMenu = document.querySelector('.side-menu');
 
         toggleMenu.addEventListener('click', () => {
             sideMenu.classList.toggle('show');
         });
+
+
+        
+        
+        function toggleCategory(categoryId) {
+    const container = document.getElementById(categoryId);
+    container.classList.toggle('hidden');
+}
+
+
+
+
+
+
+    document.querySelectorAll('.app-box').forEach(item => {
+        item.addEventListener('click', function() {
+            const url = this.getAttribute('data-url');
+            document.getElementById('content-iframe').src = url;
+            document.getElementById('content-iframe').style.display = 'block';
+        });
+    });
+
+    // Close iframe when clicking outside of it
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.app-box') === null && document.getElementById('content-iframe').style.display === 'block') {
+            document.getElementById('content-iframe').style.display = 'none';
+            document.getElementById('content-iframe').src = '';
+        }
+    });
+
+
     </script>
 </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
+</html>   
